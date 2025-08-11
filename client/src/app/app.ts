@@ -1,23 +1,23 @@
 import { Component, HostBinding, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavBar } from './shared/nav-bar/nav-bar';
+import { Header } from './shared/header/header';
 import { SideBar } from './shared/side-bar/side-bar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, SideBar],
+  imports: [RouterOutlet, Header, SideBar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('client');
-  public darkmode = signal<boolean>(false);
+  public isDarkmodeToggled = signal<boolean>(true);
 
   toggleDarkMode(): void {
-    this.darkmode.set(!this.darkmode());
+    this.isDarkmodeToggled.set(!this.isDarkmodeToggled());
   }
 
   @HostBinding('class.dark') get mode() {
-    return this.darkmode();
+    return this.isDarkmodeToggled();
   }
 }

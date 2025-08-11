@@ -1,6 +1,28 @@
 <div
-  [class]="collapseView() ? 'w-16' : 'w-48'"
-  class="min-h-screen bg-orange-100/70 border-r-4 border-orange-100/60 dark:bg-gray-800/95 dark:border-gray-800/70 transition-colors duration-300"
+  [class]="isViewCollapsed() ? 'w-16' : 'w-48'"
+  class="flex flex-col min-h-screen side-bar-background"
 >
-  <p>hello</p>
+  <div class="flex justify-between">
+    @if (!isViewCollapsed()) {
+      <h1 class="text-lg justify-start font-semibold text-styling">
+        Bienvenida Sam
+      </h1>
+    }
+
+    <button
+      class="cursor-pointer rounded-sm h-6 w-6 flex items-center justify-center hover-styling"
+    >
+      <fa-icon
+        [icon]="isViewCollapsed() ? faAnglesRight : faAnglesLeft"
+        class="cursor-pointer justify-end text-styling"
+        (click)="toggleCollapsedView()"
+      />
+    </button>
+  </div>
+
+  <div class="flex flex-col">
+    <a routerLink="/add-task" class="block text-styling"> Add Task </a>
+    <a routerLink="/schedule/today" class="block text-styling"> Today </a>
+    <a routerLink="/schedule/all" class="block text-styling"> All </a>
+  </div>
 </div>

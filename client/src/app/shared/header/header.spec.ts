@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavBar } from './nav-bar';
+import { NavBar } from './header';
 
 describe('NavBar', () => {
   let component: NavBar;
@@ -8,9 +8,8 @@ describe('NavBar', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavBar]
-    })
-    .compileComponents();
+      imports: [NavBar],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NavBar);
     component = fixture.componentInstance;

@@ -1,6 +1,28 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer utilities {
+  .header-background {
+    @apply bg-gray-300 dark:bg-gray-800 transition-colors duration-300;
+  }
+
+  .main-content-background {
+    @apply bg-gray-100 dark:bg-gray-700 transition-colors duration-300;
+  }
+
+  .side-bar-background {
+    @apply bg-gray-200 dark:bg-gray-800/95 transition-all duration-300;
+  }
+
+  .text-styling {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+
+  .hover-styling {
+    @apply hover:bg-gray-400 transition-colors duration-200;
+  }
+}
+
 body {
   margin: 0;
 }

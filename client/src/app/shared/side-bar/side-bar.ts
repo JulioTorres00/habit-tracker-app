@@ -1,15 +1,20 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-side-bar',
-  imports: [],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './side-bar.html',
   styleUrl: './side-bar.css',
 })
 export class SideBar {
-  public collapseView = signal<boolean>(false);
+  public isViewCollapsed = signal<boolean>(false);
+  public faAnglesLeft = faAnglesLeft;
+  public faAnglesRight = faAnglesRight;
 
   toggleCollapsedView(): void {
-    this.collapseView.update((value) => !value);
+    this.isViewCollapsed.update((value) => !value);
   }
 }
