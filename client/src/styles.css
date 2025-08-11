@@ -2,6 +2,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer utilities {
+  .text-styling {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+
+  .hover-styling {
+    @apply hover:bg-gray-400 transition-colors duration-200;
+  }
+
   .header-background {
     @apply bg-gray-300 dark:bg-gray-800 transition-colors duration-300;
   }
@@ -14,12 +22,8 @@
     @apply bg-gray-200 dark:bg-gray-800/95 transition-all duration-300;
   }
 
-  .text-styling {
-    @apply text-gray-800 dark:text-gray-200;
-  }
-
-  .hover-styling {
-    @apply hover:bg-gray-400 transition-colors duration-200;
+  .side-bar-text-transition {
+    @apply transition-all ease-in-out duration-300 whitespace-nowrap overflow-hidden;
   }
 }
 
