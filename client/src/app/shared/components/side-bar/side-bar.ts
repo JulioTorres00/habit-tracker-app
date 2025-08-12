@@ -1,13 +1,9 @@
 import { Component, HostListener, signal, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faAnglesLeft,
-  faAnglesRight,
-  faCirclePlus,
-  faCalendarDay,
-  faCalendarDays,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { TabsConfig } from '../../../core/models/tabs-config.model';
+import { SideBarTabs } from './../../config/side-bar-tabs.config';
 
 @Component({
   selector: 'app-side-bar',
@@ -16,13 +12,11 @@ import {
   styleUrl: './side-bar.css',
 })
 export class SideBar implements OnInit {
-  public isViewCollapsed = signal<boolean>(false);
+  private collapseThreshold = 768;
   public faAnglesLeft = faAnglesLeft;
   public faAnglesRight = faAnglesRight;
-  public faCirclePlus = faCirclePlus;
-  public faCalendarDay = faCalendarDay;
-  public faCalendarDays = faCalendarDays;
-  private collapseThreshold = 768;
+  public sideBarTabs: TabsConfig[] = SideBarTabs;
+  public isViewCollapsed = signal<boolean>(false);
 
   @HostListener('window:resize')
   onResize() {

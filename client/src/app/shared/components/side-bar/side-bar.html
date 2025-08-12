@@ -23,79 +23,31 @@
   </div>
 
   <div class="flex flex-col">
-    <a
-      routerLink="/add-task"
-      class="flex min-h-8 max-h-8 mb-4 side-bar-text-transition"
-      [class]="isViewCollapsed() ? '' : 'rounded-sm hover-styling mr-4'"
-    >
-      <button
-        class="h-8 w-8 flex items-center justify-center side-bar-text-transition"
-        [class]="
-          isViewCollapsed()
-            ? 'mx-auto rounded-sm hover-styling cursor-pointer'
-            : ''
-        "
-        (click)="toggleCollapsedView()"
+    @for (tab of sideBarTabs; track $index) {
+      <a
+        routerLink="{{ tab.url }}"
+        class="flex min-h-8 max-h-8 mb-4 side-bar-text-transition"
+        [class]="isViewCollapsed() ? '' : 'rounded-sm hover-styling mr-4'"
       >
-        <fa-icon [icon]="faCirclePlus" class="cursor-pointer text-styling" />
-      </button>
+        <button
+          class="h-8 w-8 flex items-center justify-center side-bar-text-transition"
+          [class]="
+            isViewCollapsed()
+              ? 'mx-auto rounded-sm hover-styling cursor-pointer'
+              : ''
+          "
+          (click)="toggleCollapsedView()"
+        >
+          <fa-icon [icon]="tab.icon" class="cursor-pointer text-styling" />
+        </button>
 
-      <h1
-        class="text-lg font-medium text-styling side-bar-text-transition"
-        [class]="isViewCollapsed() ? 'w-0 opacity-0 mr-0' : 'pl-1 pt-0.5'"
-      >
-        Add Task
-      </h1>
-    </a>
-
-    <a
-      routerLink="/schedule/today"
-      class="flex min-h-8 max-h-8 mb-4 side-bar-text-transition"
-      [class]="isViewCollapsed() ? '' : 'rounded-sm hover-styling mr-4'"
-    >
-      <button
-        class="h-8 w-8 flex items-center justify-center side-bar-text-transition"
-        [class]="
-          isViewCollapsed()
-            ? 'mx-auto rounded-sm hover-styling cursor-pointer'
-            : ''
-        "
-        (click)="toggleCollapsedView()"
-      >
-        <fa-icon [icon]="faCalendarDay" class="cursor-pointer text-styling" />
-      </button>
-
-      <h1
-        class="text-lg font-medium text-styling side-bar-text-transition"
-        [class]="isViewCollapsed() ? 'w-0 opacity-0 mr-0' : 'pl-1 pt-0.5'"
-      >
-        Today
-      </h1>
-    </a>
-
-    <a
-      routerLink="/schedule/all"
-      class="flex min-h-8 max-h-8 mb-4 side-bar-text-transition"
-      [class]="isViewCollapsed() ? '' : 'rounded-sm hover-styling mr-4'"
-    >
-      <button
-        class="h-8 w-8 flex items-center justify-center side-bar-text-transition"
-        [class]="
-          isViewCollapsed()
-            ? 'mx-auto rounded-sm hover-styling cursor-pointer'
-            : ''
-        "
-        (click)="toggleCollapsedView()"
-      >
-        <fa-icon [icon]="faCalendarDays" class="cursor-pointer text-styling" />
-      </button>
-
-      <h1
-        class="text-lg font-medium text-styling side-bar-text-transition"
-        [class]="isViewCollapsed() ? 'w-0 opacity-0 mr-0' : 'pl-1 pt-0.5'"
-      >
-        All
-      </h1>
-    </a>
+        <h1
+          class="text-lg font-medium text-styling side-bar-text-transition"
+          [class]="isViewCollapsed() ? 'w-0 opacity-0 mr-0' : 'pl-1 pt-0.5'"
+        >
+          {{ tab.label }}
+        </h1>
+      </a>
+    }
   </div>
 </div>

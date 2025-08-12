@@ -1,19 +1,24 @@
-import { RouteConfig } from '../../core/models/routes.model';
+import { TabsConfig } from '../../core/models/tabs-config.model';
+import {
+  faCirclePlus,
+  faCalendarDay,
+  faCalendarDays,
+} from '@fortawesome/free-solid-svg-icons';
 
-export const sideBarTabs: RouteConfig[] = [
+export const SideBarTabs: TabsConfig[] = [
   {
-    path: '/functions/add-task',
+    url: '/functions/add-task',
     label: 'Add Task',
-    icon: 'faCirclePlus',
+    icon: faCirclePlus,
   },
   {
-    path: '/schedule/today',
+    url: '/schedule/today',
     label: 'Today',
-    icon: 'faCalendarDay',
+    icon: faCalendarDay,
   },
   {
-    path: '/schedule/all',
+    url: '/schedule/all',
     label: 'All',
-    icon: 'faCalendarDays',
+    icon: faCalendarDays,
   },
 ];
